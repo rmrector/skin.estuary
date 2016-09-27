@@ -19,7 +19,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
 				<left>90</left>
-				<top>185</top>
+				<top>267</top>
 				<include>OpenClose_Left</include>
 				<control type="image">
 					<left>-20</left>
@@ -159,7 +159,7 @@
 				<orientation>horizontal</orientation>
 				<itemgap>-22</itemgap>
 				<left>70</left>
-				<top>795</top>
+				<top>165</top>
 				<onup>SetFocus(9000,99)</onup>
 				<onup>9000</onup>
 				<ondown>SetFocus(9000,0)</ondown>
