@@ -374,7 +374,7 @@
 		</definition>
 	</include>
 	<include name="MediaFlags">
-		<top>1020</top>
+		<top>1015</top>
 		<visible>Skin.HasSetting(show_mediaflags)</visible>
 		<animation effect="fade" time="200">VisibleChange</animation>
 		<control type="grouplist">
@@ -548,9 +548,9 @@
 		<definition>
 			<control type="panel" id="$PARAM[container_id]">
 				<left>520</left>
-				<top>175</top>
-				<width>1360</width>
-				<height>720</height>
+				<top>0</top>
+				<width>1400</width>
+				<height>1200</height>
 				<onleft>9000</onleft>
 				<onright>531</onright>
 				<include>Visible_Right_Delayed</include>
@@ -560,13 +560,17 @@
 				<preloaditems>1</preloaditems>
 				<pagecontrol>531</pagecontrol>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
-				<itemlayout height="360" width="320">
-					<include content="InfoWallMusicLayout">
-						<param name="fallback_image" value="DefaultAddon.png" />
-					</include>
-				</itemlayout>
-				<focusedlayout height="360" width="320">
+				<itemlayout height="401" width="350">
 					<control type="group">
+						<top>150</top>
+						<include content="InfoWallMusicLayout">
+							<param name="fallback_image" value="DefaultAddon.png" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="401" width="350">
+					<control type="group">
+						<top>150</top>
 						<animation effect="zoom" start="100" end="105" time="200" tween="sine" easing="inout" center="160,180">Focus</animation>
 						<animation effect="zoom" start="105" end="100" time="200" tween="sine" easing="inout" center="160,180">UnFocus</animation>
 						<include content="InfoWallMusicLayout">
@@ -886,7 +890,7 @@
 						<visible>!String.IsEqual(Control.GetLabel(10),$LOCALIZE[16100]) + Window.IsActive(videos)</visible>
 					</control>
 					<control type="label">
-						<label> ($LOCALIZE[31052])</label>
+						<label>($LOCALIZE[31052])</label>
 						<include>BreadcrumbsLabel</include>
 						<visible>Container.Filtered</visible>
 					</control>

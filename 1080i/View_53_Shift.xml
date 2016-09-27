@@ -123,13 +123,13 @@
 				<include>OpenClose_Right</include>
 				<include content="ShiftTextbox">
 					<param name="textbox_id" value="53200" />
-					<param name="textbox_content" value="$VAR[ShiftLeftTextBoxVar]" />
+					<param name="textbox_content" value="$VAR[ShiftRightTextBoxVar]" />
 				</include>
 				<control type="group">
 					<left>960</left>
 					<include content="ShiftTextbox">
 						<param name="textbox_id" value="53300" />
-						<param name="textbox_content" value="$VAR[ShiftRightTextBoxVar]" />
+						<param name="textbox_content" value="$VAR[ShiftLeftTextBoxVar]" />
 					</include>
 				</control>
 			</control>
@@ -143,7 +143,7 @@
 				<left>30</left>
 				<top>15</top>
 				<width>890</width>
-				<height>123</height>
+				<height>183</height>
 				<label>$PARAM[textbox_content]</label>
 				<font>font12</font>
 				<shadowcolor>text_shadow</shadowcolor>
