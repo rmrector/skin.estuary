@@ -294,14 +294,37 @@
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(900)">$INFO[Skin.String(HomeFanart.path)]search$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
+	<variable name="MediaFanartSmartseriesTitle">
+		<value condition="[Container.Content(tvshows) | String.IsEqual(ListItem.DBTYPE,tvshow)] + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<value condition="!String.IsEmpty(Container.ShowTitle)">$INFO[Container.ShowTitle]</value>
+		<value condition="!String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	<variable name="MediaFanartListItemRefresh">
+		<!-- Try the most general so that flipping between neighbors of same series/artist doesn't flip fanart -->
+		<value condition="!String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
+		<value condition="!String.IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
+		<value condition="!String.IsEmpty(ListItem.DBID)">$INFO[ListItem.DBID]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	<variable name="MediaFanartListItemArtType">
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">tvshow.fanart</value>
+		<value condition="!String.IsEmpty(ListItem.Art(artist.fanart))">artist.fanart</value>
+		<value>fanart</value>
+	</variable>
 	<variable name="MediaFanartVar">
 		<value condition="Skin.HasSetting(no_fanart)">$VAR[GlobalFanartVar]</value>
+		<!-- smartseries to keep the path the same through series-season-episode navigation -->
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.artwork.helper/multiimage/smartseries/?title=$VAR[MediaFanartSmartseriesTitle]</value>
+		<value condition="!String.IsEmpty(Container.Art(artist.fanart))">plugin://script.artwork.helper/multiimage/container/?refresh=$INFO[Container.FolderName]&amp;&amp;arttype=artist.fanart</value>
+		<value condition="!String.IsEmpty(Container.Art(set.fanart))">plugin://script.artwork.helper/multiimage/container/?refresh=$INFO[Container.FolderName]&amp;&amp;arttype=set.fanart</value>
+		<!-- In some circumstances (playlists, plugin lists, add-on windows) artwork isn't set on the Container, but are often still available on the ListItem -->
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart)) | !String.IsEmpty(ListItem.Art(artist.fanart)) | !String.IsEmpty(ListItem.Art(fanart))">plugin://script.artwork.helper/multiimage/listitem/?refresh=$VAR[MediaFanartListItemRefresh]&amp;&amp;arttype=$VAR[MediaFanartListItemArtType]</value>
 		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)">$INFO[Window(home).Property(infobackground)]</value>
-		<value condition="Window.IsActive(pictures) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
-		<value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
-		<value>$INFO[Container.Art(fanart)]</value>
+		<value condition="Window.IsActive(pictures)">$INFO[ListItem.FolderPath]</value>
+		<value condition="!String.IsEmpty(Container.Art(fanart))">$INFO[Container.Art(fanart)]</value>
+		<!-- This fallback is needed to clear `multiimage` in some cases -->
+		<value>$VAR[GlobalFanartVar]</value>
 	</variable>
 	<variable name="WeatherFanartVar">
 		<value condition="!String.IsEmpty(Window(weather).Property(current.fanartcode)) + !String.IsEmpty(Skin.String(weatherfanart.path))">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(weatherfanart.ext)]</value>
