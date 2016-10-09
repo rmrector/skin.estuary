@@ -267,19 +267,19 @@
 	</variable>
 	<variable name="HomeFanartVar">
 		<value condition="Skin.HasSetting(no_fanart)">$VAR[GlobalFanartVar]</value>
-		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)">$INFO[Window(home).Property(infobackground)]</value>
-		<value condition="!String.IsEmpty(Container(5100).ListItem.Art(fanart)) + Control.HasFocus(5100)">$INFO[Container(5100).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(5200).ListItem.Art(fanart)) + Control.HasFocus(5200)">$INFO[Container(5200).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(5300).ListItem.Art(fanart)) + Control.HasFocus(5300)">$INFO[Container(5300).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(5400).ListItem.Art(fanart)) + Control.HasFocus(5400)">$INFO[Container(5400).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(6100).ListItem.Art(fanart)) + Control.HasFocus(6100)">$INFO[Container(6100).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(6200).ListItem.Art(fanart)) + Control.HasFocus(6200)">$INFO[Container(6200).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(6300).ListItem.Art(fanart)) + Control.HasFocus(6300)">$INFO[Container(6300).ListItem.Art(fanart)]</value>
+		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml)">$VAR[MediaFanartVar]</value>
+		<value condition="!String.IsEmpty(Container(5100).ListItem.Art(fanart)) + Control.HasFocus(5100)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(5100).ListItem.DBID]&amp;&amp;containerid=5100</value>
+		<value condition="!String.IsEmpty(Container(5200).ListItem.Art(fanart)) + Control.HasFocus(5200)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(5200).ListItem.DBID]&amp;&amp;containerid=5200</value>
+		<value condition="!String.IsEmpty(Container(5300).ListItem.Art(fanart)) + Control.HasFocus(5300)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(5300).ListItem.DBID]&amp;&amp;containerid=5300</value>
+		<value condition="!String.IsEmpty(Container(5400).ListItem.Art(fanart)) + Control.HasFocus(5400)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(5400).ListItem.DBID]&amp;&amp;containerid=5400</value>
+		<value condition="!String.IsEmpty(Container(6100).ListItem.Art(fanart)) + Control.HasFocus(6100)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(6100).ListItem.DBID]&amp;&amp;containerid=6100</value>
+		<value condition="!String.IsEmpty(Container(6200).ListItem.Art(tvshow.fanart)) + Control.HasFocus(6200)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(6200).ListItem.DBID]&amp;&amp;containerid=6200&amp;&amp;arttype=tvshow.fanart</value>
+		<value condition="!String.IsEmpty(Container(6300).ListItem.Art(fanart)) + Control.HasFocus(6300)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(6300).ListItem.DBID]&amp;&amp;containerid=6300</value>
 		<value condition="!String.IsEmpty(Container(6400).ListItem.Art(fanart)) + Control.HasFocus(6400)">$INFO[Container(6400).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(7100).ListItem.Art(fanart)) + Control.HasFocus(7100)">$INFO[Container(7100).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(7200).ListItem.Art(fanart)) + Control.HasFocus(7200)">$INFO[Container(7200).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(7300).ListItem.Art(fanart)) + Control.HasFocus(7300)">$INFO[Container(7300).ListItem.Art(fanart)]</value>
-		<value condition="!String.IsEmpty(Container(7400).ListItem.Art(fanart)) + Control.HasFocus(7400)">$INFO[Container(7400).ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Container(7100).ListItem.Art(artist.fanart)) + Control.HasFocus(7100)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(7100).ListItem.DBID]&amp;&amp;containerid=7100&amp;&amp;arttype=artist.fanart</value>
+		<value condition="!String.IsEmpty(Container(7200).ListItem.Art(artist.fanart)) + Control.HasFocus(7200)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(7200).ListItem.DBID]&amp;&amp;containerid=7200&amp;&amp;arttype=artist.fanart</value>
+		<value condition="!String.IsEmpty(Container(7300).ListItem.Art(artist.fanart)) + Control.HasFocus(7300)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(7300).ListItem.DBID]&amp;&amp;containerid=7300&amp;&amp;arttype=artist.fanart</value>
+		<value condition="!String.IsEmpty(Container(7400).ListItem.Art(fanart)) + Control.HasFocus(7400)">plugin://script.artwork.helper/multiimage/listitem/?refresh=$INFO[Container(7400).ListItem.DBID]&amp;&amp;containerid=7400</value>
 		<value condition="!String.IsEmpty(Container(8100).ListItem.Art(fanart)) + Control.HasFocus(8100)">$INFO[Container(8100).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(8200).ListItem.Art(fanart)) + Control.HasFocus(8200)">$INFO[Container(8200).ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container(8300).ListItem.Art(fanart)) + Control.HasFocus(8300)">$INFO[Container(8300).ListItem.Art(fanart)]</value>
